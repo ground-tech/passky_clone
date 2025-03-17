@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  font-family: "Proxima Nova", system-ui, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  background-color: oklch(.278 .033 256.848);
+  color: azure;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  padding: 1em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #25aec6;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+#root{
+width: 100%;
+}
+/* Hamburger button styles */
+.hamburger {
+  display: none; /* Hide by default on desktop */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1000;
+}
+
+.bar {
+  display: block;
+  width: 20px;
+  height: 2px;
+  margin: 5px auto;
+  transition: all 0.3s ease;
+}
+
+/* Mobile menu styles */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100vh;
+  transition: right 0.3s ease;
+  padding: 80px 20px 20px;
+  z-index: 999;
+}
+
+.menu-overlay.active {
+  right: 0;
+}
+
+.menu-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-items a {
+  text-decoration: none;
+}
+
+/* Hamburger animation */
+.hamburger.active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+/* Close button styles */
+.close-button {
+  position: absolute;
+  top: 0px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 2.5rem;
+  cursor: pointer;
+  padding: 10px;
+  transition: transform 0.3s ease;
+}
+
+.close-button:hover {
+  transform: rotate(90deg);
+}
+
+/* Ensure menu items are below close button */
+.menu-items {
+  margin-top: 40px;
+}
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+}
